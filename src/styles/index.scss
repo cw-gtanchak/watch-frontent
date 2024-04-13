@@ -1,0 +1,347 @@
+@import 'react-loading-skeleton/dist/skeleton.css';
+
+@import './tailwind.scss';
+@import './reset.css';
+@import './input.scss';
+@import './button.scss';
+@import './codemirror.scss';
+@import './loader.scss';
+
+:root {
+  --main-blue: #524fef;
+  --focus-blue: #3a37ec;
+  --text-dark-primary: #ffffff;
+  --text-dark-secondary: #aaaaaa;
+  --text-dark-tertiary: #767676;
+  --text-light-primary: #000000;
+  --text-light-secondary: #6f6f6f;
+  --text-light-tertiary: #9d9d9d;
+  --bg-main: #efefef;
+  --bg-dark: #000000;
+  --bg-white: #ffffff;
+  --bg-transparent: rgba(255, 255, 255, 0.1);
+  --divider-linear: linear-gradient(91.24deg, #ffffff 0%, #e0e0e3 100%);
+  --divider-gray: #efefef;
+  --divider-purple: rgba(82, 79, 239, 0.2);
+}
+
+body {
+  overflow-x: auto;
+}
+
+.bg-var-main {
+  background-color: var(--bg-main);
+}
+
+.bg-var-transparent {
+  background-color: var(--bg-transparent);
+}
+
+.hover\:bg-var-transparent:hover {
+  background-color: var(--bg-transparent);
+}
+
+button {
+  @apply outline-1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1 !important;
+  word-wrap: anywhere;
+}
+
+h1 {
+  @apply text-3xl sm:text-4xl font-bold uppercase;
+}
+
+h2 {
+  @apply text-2xl sm:text-3xl font-bold uppercase;
+}
+
+h3 {
+  @apply text-xl sm:text-2xl font-bold uppercase leading-6;
+}
+
+h4 {
+  @apply text-xl font-bold uppercase;
+}
+
+h5 {
+  @apply text-lg font-bold uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply dark:font-normal dark:normal-case
+}
+
+.markdown ol, .markdown ul{
+  margin-bottom: 8px !important;
+}
+
+.navbar ul {
+  @apply flex h-full flex-col items-center rounded-lg border px-4 md:mt-0 md:flex-row md:border-0 md:text-sm md:font-medium;
+
+  li {
+    a {
+      @apply block h-full p-6 text-neutral-400;
+
+      &:hover,
+      &.active {
+        background-color: var(--bg-transparent);
+        @apply text-white;
+      }
+
+      &:focus {
+        @apply bg-neutral-900;
+      }
+    }
+  }
+}
+
+.card {
+  @apply border border-solid border-neutral-200 bg-white shadow-sm;
+
+  &:focus,
+  &.selected {
+    @apply border-blue-500;
+  }
+
+  &.selected {
+    @apply bg-blue-100/50;
+  }
+}
+
+button.card {
+  &:hover {
+    @apply border-blue-500;
+  }
+
+  &.selected:hover {
+    @apply bg-blue-100/25;
+  }
+}
+
+.modal-gradient {
+  background: linear-gradient(180deg, #ebebff 0%, #ffffff 100%);
+}
+
+a.hyperlink,
+button.hyperlink {
+  @apply text-blue-500 hover:text-blue-400;
+}
+
+a:hover .hyperlink {
+  @apply text-blue-400;
+}
+
+.hyperlink svg {
+  @apply fill-blue-500 hover:fill-blue-400
+}
+
+.markdown {
+  ol, ul {
+    list-style: disc !important;
+    margin: 0.25rem 0 1rem 1rem;
+  }
+}
+.back-btn-wrap {
+  grid-area: back;
+}
+.a-developer-btn-wrap {
+  grid-area: developer;
+}
+.next-btn-wrap {
+  grid-area: next;
+}
+.btn-group-wrap {
+  grid-template-areas: "back developer next";
+  
+  @media only screen and (max-width: 767px){
+    grid-template-areas: "developer developer"
+    "back next";
+  }
+}
+.scrollbar-blue {
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #524FEF;
+    border-radius: 4px;
+    margin-right: 15px;
+    opacity: 0;
+  }
+
+  /* Optional: Style the scrollbar on hover */
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: #5451f7;
+    opacity: 1;
+  }
+}
+
+.scrollbar-white {
+  &::-webkit-scrollbar {
+    width: 3px;
+    height:3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-right: 15px;
+    opacity: 0;
+  }
+
+  /* Optional: Style the scrollbar on hover */
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    opacity: 1;
+  }
+}
+
+.scrollbar-dark {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ffffff33;
+    border-radius: 15px;
+    opacity: 0;
+  }
+}
+
+.no-scrollbar {
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease  1s;
+  -moz-animation: fadeIn ease  1s;
+  -o-animation: fadeIn ease  1s;
+  -ms-animation: fadeIn ease  1s;
+}
+
+
+@keyframes fadeIn{
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+
+.fadeInUp {
+  animation:fadeInUp 1.5s ease backwards;
+}
+
+@keyframes fadeInUp {
+
+  0% { 
+    transform:translate(0px, 120px); opacity: 0;
+  }
+  // 50%{
+  //   transform: translate(0px, 60px); opacity: 0.5;
+  // }
+  100% {
+    transform:translate(0px, 0); opacity: 1;
+  }
+}
+
+
+.react-loading-skeleton::after {
+  background-image: linear-gradient(45deg, #3f3f3f36, #3f3f3f36);
+}
+
+.stop-scrolling {
+  overflow: hidden;
+}
+
+.MuiTooltip-arrow {
+  color: #1A1A1A !important;
+}
+
+.MuiTooltip-tooltip  {
+  border-radius: 14px !important;
+  padding: 10px !important;
+  display: flex;
+  align-items: center;
+  background-color: #1A1A1A !important;
+}
+
+@media (max-width:425px) {
+  .MuiTooltip-tooltip {
+    max-width: 220px !important;
+  }
+}

@@ -1,0 +1,48 @@
+chartStyle.css .apexcharts-tooltip {
+
+  background: rgba(255, 255, 255, 0.11) !important;
+
+  color: white;
+
+  backdrop-filter: blur(3px);
+
+  border-radius: 14px !important;
+
+  padding: 4px 8px;
+
+  border: 0 !important;
+
+  flex-direction: column-reverse !important;
+
+}
+
+.apexcharts-tooltip .apexcharts-tooltip-title {
+
+  background: transparent !important;
+
+  border-bottom: 0 !important;
+
+  color: #b2b3b8;
+
+  padding-top: 0;
+
+  padding-bottom: 0;
+
+  padding-right: 0;
+
+}
+
+.apexcharts-tooltip .apexcharts-tooltip-series-group {
+
+  padding: 0 !important;
+
+}
+.apexcharts-tooltip.apexcharts-active {
+  border-radius: 14px;
+  background: #141414 !important;
+  backdrop-filter: blur(3px);
+  padding: 4px 8px;
+  border: none !important;
+  box-shadow: none;
+  flex-direction: column-reverse !important;
+}

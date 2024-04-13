@@ -1,0 +1,118 @@
+mutation CreateUser($address: String, $sessionKey: String) {
+  createUser(address: $address, sessionKey: $sessionKey) {
+    ...UserBasics
+  }
+}
+
+mutation WidthdrawTokens($data: wihdrawTokensInputType!, $address: String, $sessionKey: String) {
+  widthdrawTokensMutation(data: $data, address: $address, sessionKey: $sessionKey) {
+    status
+    error
+    amount
+  }
+}
+
+mutation CreateApiKey($data: ApiKeyCreateInput!, $address: String, $sessionKey: String) {
+  createApiKey(data: $data, address: $address, sessionKey: $sessionKey) {
+    ...ApiKeyDetails
+  }
+}
+
+mutation UpdateApiKey($data: ApiKeyUpdateInput!, $address: String, $sessionKey: String) {
+  updateApiKey(data: $data, address: $address, sessionKey: $sessionKey) {
+    ...ApiKeyDetails
+  }
+}
+
+mutation RevokeApiKey($data: ApiKeyGetInput!, $address: String, $sessionKey: String) {
+  revokeApiKey(data: $data, address: $address, sessionKey: $sessionKey) {
+    ...ApiKeyDetails
+  }
+}
+
+mutation EnableApiKey($data: ApiKeyGetInput!, $address: String, $sessionKey: String) {
+  enableApiKey(data: $data, address: $address, sessionKey: $sessionKey) {
+    ...ApiKeyDetails
+  }
+}
+
+mutation DryRunView($data: ViewSpec!, $address: String, $sessionKey: String) {
+  dryRunView(data: $data, address: $address, sessionKey: $sessionKey) {
+    name
+    status
+    error
+    header
+    data
+    view {
+      hashId
+      name
+      identifier
+      dryRun {
+        errors
+        updates
+      }
+    }
+  }
+}
+
+mutation CreateView($data: ViewInput!, $address: String, $sessionKey: String) {
+  createView(data: $data, address: $address, sessionKey: $sessionKey) {
+    status
+    error
+    result {
+      ...ViewDetails
+    }
+  }
+}
+
+mutation EditView($data: EditMetadataInput!, $address: String, $sessionKey: String) {
+  editView(data: $data, address: $address, sessionKey: $sessionKey) {
+    ...ViewDetails
+  }
+}
+
+mutation SponsorView($data: SponsorViewInputType!, $address: String, $sessionKey: String) {
+  SponsorViewMutation(data: $data, address: $address, sessionKey: $sessionKey) {
+    status
+    error
+    amount
+  }
+}
+
+mutation dryRunContract($data: DryRunContractSpec!, $sessionKey: String!) {
+  dryRunContract(data: $data, sessionKey: $sessionKey) {
+    status
+    error
+    contract {
+      identifier
+    }
+    functions {
+      status
+      function {
+        name
+        outputs {
+          name
+          value
+        }
+        inputs {
+          value
+          constant
+        }
+        hashId
+        identifier
+      }
+    }
+  }
+}
+
+mutation MergeContract($data: ContractSpec!, $address: String, $sessionKey: String) {
+  MergeContract(data: $data, address: $address, sessionKey: $sessionKey) {
+    status
+    error
+  }
+}
+
+
+mutation Onboarding($address: String!, $answers: Json!) {
+  onboarding(address: $address, answers: $answers)
+}

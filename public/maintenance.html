@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Under Maintenance</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Neue_Montreal", sans-serif;
+        box-sizing: border-box;
+      }
+
+      main {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        padding: 24px;
+        background-color: black;
+        color: white;
+      }
+
+      .main-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        background: url("/appBackground.png") no-repeat center/cover;
+        border-radius: 20px;
+      }
+      img {
+        max-height: 50%;
+        max-width: 90%;
+      }
+
+      .text-container {
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      h1 {
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 22px;
+        margin-top: 6px;
+        color: #ffffff99;
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 18px; /* Adjust the font size for mobile */
+        }
+        p {
+          font-size: 16px;
+        }
+        main {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="dark">
+      <div class="main-content">
+        <img src="/maintenance.svg" alt="Under Maintenance" />
+
+        <div class="text-container">
+          <h1>Analog Watch is currently under maintenance!</h1>
+          <p>Deployments are in progress! We’ll be back soon!</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

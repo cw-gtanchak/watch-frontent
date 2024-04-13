@@ -1,0 +1,124 @@
+.btn {
+  &:disabled {
+    @apply cursor-not-allowed;
+  }
+
+  &:not(.plain) {
+    @apply flex max-h-full items-center justify-center space-x-1 px-6 py-2 text-base font-medium uppercase transition-colors;
+    color: var(--main-blue);
+    border: 1px solid var(--main-blue);
+
+    &.negative {
+      @apply border-red-500 text-red-500;
+    }
+
+    &.icon {
+      @apply aspect-square px-0;
+    }
+
+    &.sm {
+      @apply h-8;
+    }
+
+    &.lg {
+      @apply h-12;
+    }
+
+    &.link {
+      @apply border-none px-2;
+    }
+    &.darkThemeFilled {
+      @apply bg-white border-white text-[#010314] rounded-full capitalize font-normal;
+      &:not(:disabled){
+        &:hover,
+        &:focus {
+          border: 1px solid #c7a9a9;
+          transition: 0.5s;
+        }
+      }
+      &:disabled {
+        &:hover,
+        &:focus {
+          border-radius: 61px;
+          border: 1px solid #222933;
+          opacity: 0.48;
+          background: #FFF;
+          transition: 0.5s;
+          cursor:not-allowed;
+        }
+      }
+    }
+    &.darkThemeOutlined {
+      @apply bg-transparent border-white text-white rounded-full capitalize;
+      &:not(:disabled) {
+        &:hover
+         {
+          background-color: white;
+          color: #010314;
+          transition: 0.5s;
+        }
+      }
+    }
+    &.primary {
+      @apply text-white;
+      background-color: var(--main-blue);
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background-color: var(--focus-blue);
+        }
+      }
+      
+      &.negative {
+        @apply bg-red-500 text-white;
+
+        &:not(:disabled) {
+          &:hover,
+          &:focus {
+            @apply bg-red-600;
+          }
+        }
+      }
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+
+    &.secondary {
+      @apply bg-transparent;
+
+      &:not(:disabled):hover {
+        @apply bg-blue-500/5
+      }
+
+      &.negative {
+        &:not(:disabled):hover {
+          @apply bg-red-500/10;
+        }
+      }
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+
+    &.negative {
+      @apply border-red-500 text-red-500;
+      background-color: var(--bg-white);
+
+      &:not(:disabled):hover {
+        @apply bg-red-500/10;
+      }
+
+      &.disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.input-base .btn {
+  @apply px-1.5 py-0;
+}

@@ -1,0 +1,24 @@
+@import './styles/index.scss';
+@import './assets/fonts/stylesheet.css';
+
+a {
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  font-family: 'Maax';
+  background-color: #efefef;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+summary {
+  cursor: pointer;
+  display: block;
+}

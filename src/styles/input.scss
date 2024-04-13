@@ -1,0 +1,36 @@
+.input-base {
+  @apply flex shadow-sm;
+  border-width: 1px !important;
+
+  &.hidden {
+    display: none;
+  }
+
+  input,
+  textarea {
+    @apply flex-1 px-4 py-2;
+    color: var(--text-light-primary);
+  }
+
+  &:focus {
+    @apply border-white
+  }
+}
+
+[type='text']:focus,
+[type='email']:focus,
+[type='url']:focus,
+[type='password']:focus,
+[type='number']:focus,
+[type='date']:focus,
+[type='datetime-local']:focus,
+[type='month']:focus,
+[type='search']:focus,
+[type='tel']:focus,
+[type='time']:focus,
+[type='week']:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus {
+  @apply border-white
+}

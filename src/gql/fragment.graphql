@@ -1,0 +1,152 @@
+fragment ViewBuilderInfo on SmartContract {
+  address
+  name
+  tags {
+    ...TagBasics
+  }
+}
+
+fragment SmartContractOverview on SmartContract {
+  id
+  address
+  name
+  createdAt
+  description
+  refs
+  publisher {
+    id
+    address
+  }
+  tags {
+    id
+    name
+    slug
+    isChainTag
+  }
+}
+
+fragment SmartContractDetails on SmartContract {
+  ...SmartContractOverview
+  address
+  network
+  functions {
+    ...FunctionInfoFragment
+  }
+  views {
+    ...ViewOverview
+  }
+  tags {
+    id
+    isChainTag
+    name
+    slug
+  }
+}
+
+fragment ViewOverview on View {
+  id
+  hashId
+  name
+  createdAt
+  description
+  refs
+  publisher {
+    id
+    address
+  }
+  tags {
+    id
+    name
+    slug
+    isChainTag
+  }
+  status
+}
+
+fragment ViewDetails on View {
+  ...ViewOverview
+  hashId
+  recentData {
+    header
+    data
+  }
+  vDefinition {
+    name
+    sql
+  }
+  smartContracts {
+    address
+    createdAt
+    description
+    name
+    publisher {
+      address
+    }
+    refs
+    tags {
+      id
+      isChainTag
+      name
+      slug
+    }
+  }
+}
+
+fragment ApiKeyDetails on ApiKey {
+  name
+  network
+  createdAt
+  key
+  tg {
+    userId
+    role
+    status
+  }
+}
+
+fragment UserBasics on User {
+  address
+  id
+}
+
+fragment UserDetails on User {
+  id
+  address
+}
+
+fragment PublisherDetails on User {
+  ...UserBasics
+  smartContracts {
+    ...SmartContractOverview
+  }
+  views {
+    ...ViewOverview
+  }
+}
+
+fragment MyProfileDetails on User {
+  ...PublisherDetails
+  ...UserDetails
+  apiKeys {
+    ...ApiKeyDetails
+  }
+}
+
+fragment TagBasics on Tag {
+  id
+  name
+  slug
+}
+
+fragment TagDetails on Tag {
+  id
+  isChainTag
+  name
+  slug
+}
+
+fragment SuggestionDetails on Suggestion {
+  name
+  value
+  isTag
+}

@@ -1,0 +1,190 @@
+query HealthCheck {
+  healthCheck
+}
+
+query User($address: String, $sessionKey: String) {
+  user(address: $address, sessionKey: $sessionKey) {
+    ...UserDetails
+  }
+}
+
+query MyProfile($address: String!, $sessionKey: String!) {
+  myProfile(address: $address, sessionKey: $sessionKey) {
+    ...PublisherDetails
+  }
+  apiKeys(address: $address, sessionKey: $sessionKey) {
+    ...ApiKeyDetails
+  }
+}
+
+query UserBalance($sessionKey: String) {
+  userBalance(sessionKey: $sessionKey) {
+    balance
+  }
+}
+
+query Publisher($address: String!) {
+  publisher(address: $address) {
+    ...PublisherDetails
+  }
+}
+
+query PublisherItems($publisherAddress: String, $type: SearchType) {
+  searchLibrary(filters: { searchType: $type, publisherAddress: $publisherAddress }) {
+    ... on SmartContract {
+      ...SmartContractOverview
+    }
+
+    ... on View {
+      ...ViewOverview
+    }
+  }
+}
+
+query Tags {
+  chainTags {
+    ...TagDetails
+  }
+  topTags {
+    ...TagDetails
+  }
+}
+
+query Resource($request: ResourceRequest) {
+  resource(request: $request) {
+    ... on SmartContract {
+      ...SmartContractDetails
+    }
+
+    ... on View {
+      ...ViewDetails
+    }
+  }
+}
+
+query RecentData($request: ResourceRequest) {
+  recentData(request: $request)
+}
+
+query SearchLibrary($filters: SearchFilters) {
+  searchLibrary(filters: $filters) {
+    ... on SmartContract {
+      ...SmartContractOverview
+    }
+
+    ... on View {
+      ...ViewOverview
+    }
+  }
+}
+
+query Suggestions($string: String, $isTagOnly: Boolean) {
+  suggestions(string: $string, isTagOnly: $isTagOnly) {
+    ...SuggestionDetails
+  }
+}
+
+query ApiKey($data: ApiKeyGetInput!, $address: String, $sessionKey: String) {
+  apiKey(data: $data, address: $address, sessionKey: $sessionKey) {
+    ...ApiKeyDetails
+  }
+}
+
+query SmartContractFunctions($address: String!) {
+  smartContractFunctions(address: $address) {
+    ...FunctionInfoFragment
+  }
+}
+
+query GlobalStats {
+  GlobalStats {
+    contractCount
+    functionCount
+    fundLocked
+    fundLockedInView
+    networkCount
+    totalQuery
+    totalQueryFee
+    viewCount
+  }
+}
+
+query UserStats($userId: Int!) {
+  UserStats(userId: $userId) {
+    rewardPerDataCollector
+    totalUserQuery
+    totalUserQueryFee
+    totalUserSponsor
+    totalUserRewards
+  }
+}
+
+query UserGraph($userId: Int!, $range: RangeType!) {
+  UserGraph(userId: $userId, range: $range)
+}
+
+query SSkStats($ssk: String!) {
+  SSkStats(ssk: $ssk) {
+    totalSskQuery
+    totalSskQueryFee
+  }
+}
+
+query SSKGraph($ssk: String!, $range: RangeType!) {
+  SSKGraph(ssk: $ssk, range: $range)
+}
+
+query ViewStats($viewName: String!) {
+  ViewStats(viewName: $viewName) {
+    rewardPerView
+    totalQueryPerView
+    uniqueUserQueryPerView
+    fundLockedInView
+    minimumSponsor {
+      cycles
+      amount
+    }
+    viewIndexingStatus {
+      status
+      leftClocks
+    }
+  }
+}
+
+query ViewGraph($viewName: String!, $range: RangeType!) {
+  ViewGraph(viewName: $viewName, range: $range)
+}
+
+query searchLibraryCount($filters: SearchFilters) {
+  searchLibraryCount(filters: $filters) {
+    all
+    smartContracts
+    views
+  }
+}
+
+query UserFundedViews($userId: Int!) {
+  userFundedViews(userId: $userId) {
+    wallet
+    name
+    fundedAt
+    funded
+    hash
+  }
+}
+
+query ViewFundLog($viewName: String!) {
+  viewFundLog(viewName: $viewName) {
+    sponsor
+    timestamp
+    amount
+  }
+}
+
+query BalanceHistory($userId: Int!) {
+  balanceHistory(userId: $userId) {
+    changeType
+    timestamp
+    amount
+  }
+}

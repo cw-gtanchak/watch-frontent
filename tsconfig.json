@@ -1,0 +1,17 @@
+{
+  "exclude": ["node_modules"],
+  "extends": "config/ts/vite.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "outDir": "dist",
+    "baseUrl": "./src",
+    "jsx": "react-jsx",
+    "paths": {
+      "@analog-labs/timegraph-wasm": ["../timegraph-wasm/web/lib"]
+    }
+  },
+  "include": ["src"]
+}
